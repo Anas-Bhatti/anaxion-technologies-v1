@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════
+   TAILWIND v4 THEME — CSS-BASED
+═══════════════════════════════════════ */
+@theme {
+  /* Brand Colors */
+  --color-void:    #06060A;
+  --color-deep:    #0C0C14;
+  --color-surface: #12121C;
+  --color-panel:   #1C1C2C;
+  --color-border:  #252538;
+  --color-muted:   #38384E;
+  --color-ion:     #00C2FF;
+  --color-gold:    #C9A84C;
+  --color-text1:   #EEEEF8;
+  --color-text2:   #8888A8;
+  --color-text3:   #44445A;
+
+  /* Fonts */
+  --font-hero:  'Bebas Neue', sans-serif;
+  --font-brand: 'Orbitron', monospace;
+  --font-body:  'DM Sans', sans-serif;
+  --font-mono:  'Space Mono', monospace;
+
+  /* Animations */
+  --animate-fadeUp:  fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+  --animate-ticker:  ticker 30s linear infinite;
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-scrollP: scrollPulse 2s infinite;
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50%       { opacity: 1;   }
+  }
+}
+
+/* ═══════════════════════════════════════
+   BASE RESET
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  {
+  background: #06060A;
+  color: #EEEEF8;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+::selection { background: rgba(0,194,255,0.15); color: #00C2FF; }
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #06060A; }
+::-webkit-scrollbar-thumb { background: #252538; border-radius: 4px; }
+
+/* ═══════════════════════════════════════
+   GRADIENT TEXT UTILITIES
+═══════════════════════════════════════ */
+.text-gradient-logo {
+  background: linear-gradient(135deg, #C9A84C, #fff 50%, #00C2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-hero {
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.65) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-accent {
+  background: linear-gradient(135deg, #C9A84C 0%, #00C2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════
+   HERO GRID BACKGROUND
+═══════════════════════════════════════ */
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(0,194,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,194,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 40%, transparent 100%);
+  mask-image:         radial-gradient(ellipse 100% 100% at 50% 0%, black 40%, transparent 100%);
+}
+
+/* ═══════════════════════════════════════
+   CARD HOVER EFFECTS
+═══════════════════════════════════════ */
+.card-hover {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00C2FF, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.card-hover:hover {
+  border-color: rgba(0,194,255,0.3) !important;
+  transform: translateY(-4px);
+  background: #1C1C2C !important;
+}
+.card-hover:hover::before { transform: scaleX(1); }
+
+.card-left-bar { position: relative; }
+.card-left-bar::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: #00C2FF;
+  transform: scaleY(0);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  transform-origin: bottom;
+}
+.card-left-bar:hover::after { transform: scaleY(1); }
+
+/* ═══════════════════════════════════════
+   FADE UP ANIMATION
+═══════════════════════════════════════ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* Input focus ring override */
+input:focus, textarea:focus, select:focus { outline: none; }

@@ -1,0 +1,19 @@
+node_modules/
+.next/
+out/
+dist/
+
+# ── SECURITY: Never commit these ──
+.env
+.env.local
+.env.*.local
+# ──────────────────────────────────
+
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.vscode/
+.idea/
+
+.vercel
