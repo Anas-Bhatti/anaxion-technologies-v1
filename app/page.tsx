@@ -17,35 +17,33 @@ export const metadata: Metadata = {
 }
 
 const services = [
-  { icon: '◈', title: 'AI Integration',     desc: 'Embed intelligent automation into your workflows. ChatGPT, Claude, custom ML — we connect AI to your business logic.'     },
-  { icon: '⬡', title: 'Custom Web Apps',    desc: 'Full-stack web applications built for performance. Angular, .NET Core, SQL — clean architecture, clean code.'            },
-  { icon: '◉', title: 'Enterprise Systems', desc: 'ERPs, CRMs, and internal platforms for businesses that have outgrown off-the-shelf solutions.'                           },
-  { icon: '✦', title: 'API Development',    desc: 'Robust RESTful and GraphQL APIs that power your products. Secure, documented, and built to integrate with anything.'    },
-  { icon: '◆', title: 'UI/UX & Branding',   desc: 'Interfaces that convert. We design systems that look world-class and perform even better.'                              },
-  { icon: '⬛', title: 'IT Consulting',      desc: 'Architecture reviews, stack decisions, roadmap planning — strategic guidance for founders and CTOs.'                   },
+  { title: 'AI Integration',     desc: 'LLMs, automation pipelines, and intelligent systems embedded into your product or workflow.'  },
+  { title: 'Custom Web Apps',    desc: 'Full-stack applications in Angular, .NET Core, and SQL — built to scale from day one.'        },
+  { title: 'Enterprise Systems', desc: 'Purpose-built ERP, CRM, and internal platforms that replace expensive off-the-shelf tools.'   },
+  { title: 'API Development',    desc: 'RESTful and GraphQL APIs — versioned, documented, secured, and built to integrate anything.'  },
+  { title: 'UI/UX Design',       desc: 'Design systems and interfaces that convert. Figma to pixel-perfect, WCAG compliant.'          },
+  { title: 'IT Consulting',      desc: 'Architecture reviews, stack decisions, and technology roadmaps for founders and CTOs.'        },
 ]
 
 const stats = [
-  { num: '50',  suffix: '+',  label: 'Projects Delivered' },
-  { num: 'US',  suffix: '/UK',label: 'Primary Markets'    },
-  { num: 'AI',  suffix: '∞',  label: 'Integrated Systems' },
-  { num: '100', suffix: '%',  label: 'Client Retention'   },
-]
-
-const testimonials = [
-  { quote: 'Anaxion delivered our entire AI-powered dashboard in 6 weeks. Clean code, great communication, and they genuinely understood our business goals.',          author: 'Sarah Mitchell', company: 'CEO, DataPulse — London, UK'    },
-  { quote: 'We had tried two other agencies before Anaxion. The difference is night and day. They ask the right questions before writing a single line of code.',       author: 'James Thornton', company: 'Founder, Stackwise — Austin, TX' },
-  { quote: 'Our enterprise ERP went from concept to production in 4 months. The architecture is solid, the AI integrations are seamless, and the team is excellent.',  author: 'Priya Nair',     company: 'CTO, Orbitax — Manchester, UK'  },
+  { value: '50+',  label: 'Projects delivered'  },
+  { value: 'US/UK',label: 'Primary markets'     },
+  { value: '100%', label: 'Client retention'    },
+  { value: '24h',  label: 'Response guarantee'  },
 ]
 
 const process = [
-  { num:'01', title:'Discovery Call',          desc:'30-minute session. We understand your business, goals, budget, and timeline. No sales pitch — honest conversation.'       },
-  { num:'02', title:'Proposal & Architecture', desc:'A precise technical proposal with scope, timeline, and cost. No ambiguity. You know exactly what you get before signing.' },
-  { num:'03', title:'Build & Iterate',         desc:'Agile sprints with weekly demos. Full source code access from day one — it is always your code.'                         },
-  { num:'04', title:'Launch & Support',        desc:'We deploy, monitor, and support post-launch. Optional retainer for ongoing development and AI model updates.'             },
+  { step: '01', title: 'Discovery',   desc: 'A 30-minute call to understand your goals, budget, and timeline. No pitch — just honest conversation.'         },
+  { step: '02', title: 'Proposal',    desc: 'Fixed scope, fixed price, fixed timeline. You know exactly what you are getting before signing anything.'      },
+  { step: '03', title: 'Build',       desc: 'Weekly demos. Full source code access from day one. You own everything we build.'                              },
+  { step: '04', title: 'Launch',      desc: 'Deployment, monitoring, and post-launch support included. Ongoing retainer available.'                        },
 ]
 
-const marqueeItems = ['AI Integration','Custom Software','Web Applications','Enterprise Systems','API Development','Cloud Solutions','UI/UX Design','Digital Transformation']
+const testimonials = [
+  { quote: 'Anaxion delivered our AI-powered dashboard in 6 weeks. Clean code, honest communication, and they genuinely understood our business goals.',         author: 'Sarah Mitchell',  role: 'CEO, DataPulse',  location: 'London'     },
+  { quote: 'The difference from other agencies is night and day. They ask the right questions before writing a single line of code.',                            author: 'James Thornton', role: 'Founder, Stackwise', location: 'Austin TX' },
+  { quote: 'Our ERP went from concept to production in 4 months. Solid architecture, seamless AI integrations, and a team that delivers what they promise.',    author: 'Priya Nair',     role: 'CTO, Orbitax',    location: 'Manchester' },
+]
 
 export default function HomePage() {
   return (
@@ -53,93 +51,94 @@ export default function HomePage() {
       <JsonLd type="home" />
 
       {/* ── HERO ── */}
-      <section className="min-h-screen flex flex-col justify-end pb-20 relative overflow-hidden bg-black">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute inset-0" style={{ background:'radial-gradient(ellipse 70% 50% at 50% -10%,rgba(0,194,255,0.06) 0%,transparent 60%)' }} />
-          <div className="absolute inset-0" style={{ background:'radial-gradient(ellipse 40% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 50%)' }} />
-        </div>
-        <div className="absolute inset-0 hero-grid-bg pointer-events-none" aria-hidden="true" />
-        <div className="absolute top-1/2 left-0 right-0 pointer-events-none select-none -translate-y-1/2 overflow-hidden" aria-hidden="true">
-          <div className="animate-ticker whitespace-nowrap font-hero text-[clamp(120px,20vw,260px)] tracking-[0.05em] text-white/[0.018]">
-            {Array(6).fill('ANAXION\u00A0\u00A0\u00A0').join('')}
-          </div>
+      <section className="min-h-screen flex flex-col justify-end pb-24 pt-32 relative bg-void overflow-hidden">
+        {/* Subtle radial glow only — no grid, no ticker */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
+          style={{background:'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,194,255,0.05) 0%, transparent 70%)'}}>
         </div>
 
-        <div className="max-w-6xl mx-auto px-8 relative z-10 w-full">
-          <p className="font-mono text-[11px] tracking-[5px] uppercase text-ion mb-7 opacity-0 animate-fadeUp" style={{animationDelay:'0.3s'}}>
-            &#47;&#47; Anaxion Technologies &mdash; anaxion.tech
+        <div className="max-w-6xl mx-auto px-8 w-full relative z-10">
+          {/* Eyebrow — plain text, no code comment */}
+          <p className="font-mono text-[11px] tracking-[4px] uppercase text-ion/60 mb-10 opacity-0 animate-fadeUp"
+            style={{animationDelay:'0.2s'}}>
+            Anaxion Technologies &mdash; Est. 2025
           </p>
 
-          <div className="opacity-0 animate-fadeUp" style={{animationDelay:'0.5s'}}>
-            <h1 className="font-hero leading-[0.95] tracking-[0.08em] uppercase" style={{fontSize:'clamp(64px,9vw,130px)'}}>
-              <span className="text-gradient-hero block">Beyond</span>
-              <span className="text-gradient-accent block">The Known.</span>
+          {/* Headline — large, restrained, no gradient on first line */}
+          <div className="opacity-0 animate-fadeUp" style={{animationDelay:'0.4s'}}>
+            <h1 className="font-hero uppercase leading-[0.92] tracking-[0.04em]"
+              style={{fontSize:'clamp(56px,8.5vw,124px)'}}>
+              <span className="text-white block">We Build</span>
+              <span className="text-gradient-accent block">Software That</span>
+              <span className="text-white block">Means Business.</span>
             </h1>
           </div>
 
-          <p className="text-base text-text2 max-w-[520px] leading-[1.85] mt-6 mb-11 opacity-0 animate-fadeUp" style={{animationDelay:'0.7s'}}>
-            We build <strong className="text-text1 font-medium">AI-powered software systems</strong> for startups
-            and enterprises in the US &amp; UK &mdash; custom, fast, and engineered to scale.
+          {/* Subheadline */}
+          <p className="mt-8 mb-12 text-[15px] text-text2 max-w-[480px] leading-[1.9] font-light opacity-0 animate-fadeUp"
+            style={{animationDelay:'0.6s'}}>
+            Custom software, AI integration, and enterprise systems for
+            ambitious companies in the United States and United Kingdom.
           </p>
 
-          <div className="flex gap-4 flex-wrap opacity-0 animate-fadeUp" style={{animationDelay:'0.9s'}}>
+          {/* CTAs */}
+          <div className="flex items-center gap-5 flex-wrap opacity-0 animate-fadeUp" style={{animationDelay:'0.8s'}}>
             <Link href="/contact"
-              className="font-brand text-[11px] tracking-[3px] uppercase bg-ion text-black px-9 py-4 hover:bg-gold hover:-translate-y-0.5 transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,194,255,0.25)]">
-              Book Discovery Call &rarr;
+              className="inline-flex items-center gap-3 bg-white text-black font-brand text-[10px] tracking-[3px] uppercase px-8 py-4 hover:bg-ion transition-colors duration-300">
+              Book a Discovery Call
             </Link>
             <Link href="/services"
-              className="font-brand text-[11px] tracking-[3px] uppercase border border-border text-text1 px-9 py-4 hover:border-ion hover:text-ion hover:-translate-y-0.5 transition-all duration-300">
-              Our Services
+              className="inline-flex items-center gap-2 text-text2 font-brand text-[10px] tracking-[3px] uppercase hover:text-white transition-colors duration-300 group">
+              View Services
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
             </Link>
           </div>
 
-          <div className="flex flex-wrap gap-12 mt-20 pt-12 border-t border-border opacity-0 animate-fadeUp" style={{animationDelay:'1.1s'}}>
-            {stats.map(({ num, suffix, label }) => (
+          {/* Stats — horizontal, minimal */}
+          <div className="mt-20 pt-8 border-t border-border/50 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-0 animate-fadeUp"
+            style={{animationDelay:'1s'}}>
+            {stats.map(({ value, label }) => (
               <div key={label}>
-                <div className="font-hero text-5xl tracking-[0.05em] leading-none text-text1">
-                  {num}<span className="text-ion">{suffix}</span>
-                </div>
-                <div className="font-mono text-[10px] tracking-[3px] uppercase text-text3 mt-1">{label}</div>
+                <div className="font-hero text-[36px] tracking-[0.04em] text-white leading-none mb-1">{value}</div>
+                <div className="font-mono text-[10px] tracking-[2px] uppercase text-text3">{label}</div>
               </div>
             ))}
           </div>
         </div>
-
-        <div className="absolute bottom-8 right-8 flex flex-col items-center gap-3 font-mono text-[9px] tracking-[3px] uppercase text-text3 opacity-0 animate-fadeUp" aria-hidden="true" style={{animationDelay:'1.3s'}}>
-          <div className="w-px h-12 bg-gradient-to-b from-transparent via-ion to-transparent animate-scrollP" />
-          Scroll
-        </div>
       </section>
 
-      {/* ── MARQUEE ── */}
-      <div className="bg-surface border-y border-border py-3.5 overflow-hidden" aria-hidden="true">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className={`font-brand text-[10px] tracking-[4px] uppercase px-10 border-r border-border flex-shrink-0 ${i % 2 === 0 ? 'text-ion' : 'text-text3'}`}>
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* ── SERVICES ── */}
-      <section className="py-24 border-b border-border" aria-labelledby="services-heading">
+      <section className="py-28 border-t border-border" aria-labelledby="services-heading">
         <div className="max-w-6xl mx-auto px-8">
           <FadeUp>
-            <span className="font-mono text-[10px] tracking-[4px] uppercase text-ion opacity-80 mb-3 block">02 &mdash; What We Build</span>
-            <h2 id="services-heading" className="font-hero text-[clamp(40px,5vw,72px)] tracking-[0.06em] uppercase mb-14">
-              Our <span className="text-ion">Core</span><br />Services
-            </h2>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+              <h2 id="services-heading" className="font-hero text-[clamp(36px,5vw,60px)] tracking-[0.04em] uppercase text-white leading-none">
+                What We Build
+              </h2>
+              <Link href="/services"
+                className="font-mono text-[10px] tracking-[3px] uppercase text-text3 hover:text-ion transition-colors duration-300 flex-shrink-0">
+                All Services &rarr;
+              </Link>
+            </div>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map(({ icon, title, desc }, i) => (
-              <FadeUp key={title} delay={i * 80}>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+            {services.map(({ title, desc }, i) => (
+              <FadeUp key={title} delay={i * 60}>
                 <Link href="/services"
-                  className="block bg-surface border border-border p-9 card-hover group h-full">
-                  <span className="text-[28px] mb-5 block" aria-hidden="true">{icon}</span>
-                  <h3 className="font-brand text-[12px] tracking-[2px] uppercase text-text1 mb-3">{title}</h3>
-                  <p className="text-[13px] text-text2 leading-[1.85]">{desc}</p>
-                  <span className="mt-4 text-ion text-lg opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300 inline-block" aria-hidden="true">&rarr;</span>
+                  className="block bg-void p-8 group hover:bg-surface transition-colors duration-300 h-full">
+                  <div className="flex items-start justify-between mb-6">
+                    <span className="font-mono text-[9px] tracking-[3px] uppercase text-text3">
+                      0{i + 1}
+                    </span>
+                    <span className="text-text3 opacity-0 group-hover:opacity-100 group-hover:text-ion transition-all duration-300 text-sm">
+                      &rarr;
+                    </span>
+                  </div>
+                  <h3 className="font-brand text-[13px] tracking-[1px] uppercase text-white mb-3 group-hover:text-ion transition-colors duration-300">
+                    {title}
+                  </h3>
+                  <p className="text-[13px] text-text2 leading-[1.8] font-light">{desc}</p>
                 </Link>
               </FadeUp>
             ))}
@@ -148,63 +147,64 @@ export default function HomePage() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section className="py-24 border-b border-border bg-black" aria-labelledby="about-heading">
-        <div className="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16">
-          <FadeUp>
-            <span className="font-mono text-[10px] tracking-[4px] uppercase text-ion opacity-80 mb-3 block">03 &mdash; Who We Are</span>
-            <h2 id="about-heading" className="font-hero text-[clamp(40px,5vw,72px)] tracking-[0.06em] uppercase mb-6">
-              The <span className="text-gold">Force</span><br />Behind You
-            </h2>
-            <p className="text-[15px] text-text2 leading-[1.9] mb-5">
-              Anaxion Technologies is a premium software house targeting ambitious founders and growing
-              enterprises in the US and UK who need enterprise-grade systems without enterprise-grade friction.
-            </p>
-            <p className="text-[15px] text-text2 leading-[1.9] mb-8">
-              We are not a body-shop. We are a strategic technology partner &mdash; embedded in your vision,
-              delivering with precision.
-            </p>
-            <Link href="/contact"
-              className="font-brand text-[11px] tracking-[3px] uppercase border border-border text-text1 px-9 py-4 hover:border-ion hover:text-ion transition-all duration-300 inline-block">
-              Start a Conversation &rarr;
-            </Link>
-          </FadeUp>
+      <section className="py-28 border-t border-border bg-black" aria-labelledby="about-heading">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <FadeUp>
+              <h2 id="about-heading" className="font-hero text-[clamp(36px,5vw,60px)] tracking-[0.04em] uppercase text-white leading-[0.95] mb-8">
+                Not an Agency.<br />
+                <span className="text-gradient-accent">A Partner.</span>
+              </h2>
+              <p className="text-[15px] text-text2 leading-[1.9] font-light mb-5">
+                Anaxion Technologies builds AI-powered software for founders and enterprises
+                in the US and UK who need precision-engineered systems, not templated solutions.
+              </p>
+              <p className="text-[15px] text-text2 leading-[1.9] font-light mb-10">
+                You work directly with the people building your product. No account managers,
+                no handoffs, no surprises. Every engagement begins with honesty about what
+                is possible and what it will cost.
+              </p>
+              <Link href="/contact"
+                className="inline-flex items-center gap-2 font-brand text-[10px] tracking-[3px] uppercase text-white border border-border px-7 py-4 hover:border-ion hover:text-ion transition-colors duration-300 group">
+                Start a Conversation
+                <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+              </Link>
+            </FadeUp>
 
-          <FadeUp delay={150} className="flex flex-col gap-5">
-            {[
-              { icon:'◈', title:'AI-First Approach',    text:'Every system we build considers AI integration from day one — not as an afterthought, but as a core architectural decision.' },
-              { icon:'✦', title:'US & UK Market Focus', text:'We understand the standards, compliance needs, and expectations of US and UK clients. Legal, technical, and cultural alignment.' },
-              { icon:'◆', title:'Founder-to-Founder',   text:'You work directly with the people building your product. No account managers, no handoffs — just direct, honest execution.' },
-            ].map(({ icon, title, text }) => (
-              <div key={title} className="bg-surface border border-border p-7 flex gap-4 hover:border-ion transition-colors duration-300">
-                <span className="text-ion text-xl flex-shrink-0 mt-0.5" aria-hidden="true">{icon}</span>
-                <div>
-                  <div className="font-brand text-[11px] tracking-[2px] uppercase text-text1 mb-2">{title}</div>
-                  <p className="text-[13px] text-text2 leading-[1.75]">{text}</p>
-                </div>
+            <FadeUp delay={150}>
+              <div className="flex flex-col gap-6">
+                {[
+                  { label: 'AI-First Architecture',  text: 'Every system we build considers AI integration from day one — not bolted on after the fact.'        },
+                  { label: 'US & UK Standards',       text: 'GDPR, CCPA, enterprise security, and English-first communication built into every engagement.'       },
+                  { label: 'Fixed-Price Delivery',    text: 'Scope, cost, and timeline agreed upfront. No scope creep, no billing surprises.'                    },
+                  { label: 'You Own Everything',      text: 'Full source code, full IP transfer on completion. No lock-in, no licensing, no dependencies on us.'  },
+                ].map(({ label, text }) => (
+                  <div key={label} className="border-t border-border pt-6">
+                    <div className="font-brand text-[11px] tracking-[2px] uppercase text-white mb-2">{label}</div>
+                    <p className="text-[13px] text-text2 leading-[1.8] font-light">{text}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </FadeUp>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="py-24 border-b border-border" aria-labelledby="process-heading">
+      <section className="py-28 border-t border-border" aria-labelledby="process-heading">
         <div className="max-w-6xl mx-auto px-8">
-          <FadeUp className="mb-14">
-            <span className="font-mono text-[10px] tracking-[4px] uppercase text-ion opacity-80 mb-3 block">04 &mdash; How We Work</span>
-            <h2 id="process-heading" className="font-hero text-[clamp(40px,5vw,72px)] tracking-[0.06em] uppercase">
-              Our <span className="text-ion">Process</span>
+          <FadeUp className="mb-16">
+            <h2 id="process-heading" className="font-hero text-[clamp(36px,5vw,60px)] tracking-[0.04em] uppercase text-white leading-none">
+              How We Work
             </h2>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {process.map(({ num, title, desc }, i) => (
-              <FadeUp key={num} delay={i * 100}>
-                <div className="relative pl-12 pb-10 pt-8 border-l border-border group hover:border-ion transition-colors duration-300">
-                  <div className="absolute -left-5 top-7 w-10 h-10 bg-surface border border-border flex items-center justify-center font-mono text-[11px] text-ion transition-all duration-300 group-hover:bg-ion group-hover:text-black group-hover:border-ion" aria-hidden="true">
-                    {num}
-                  </div>
-                  <h3 className="font-brand text-[12px] tracking-[2px] uppercase text-text1 mb-2.5">{title}</h3>
-                  <p className="text-[13px] text-text2 leading-[1.85]">{desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-border">
+            {process.map(({ step, title, desc }, i) => (
+              <FadeUp key={step} delay={i * 80}>
+                <div className="bg-void p-8 h-full">
+                  <div className="font-mono text-[10px] tracking-[3px] uppercase text-ion mb-6">{step}</div>
+                  <div className="font-brand text-[13px] tracking-[1px] uppercase text-white mb-4">{title}</div>
+                  <p className="text-[13px] text-text2 leading-[1.8] font-light">{desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -213,23 +213,23 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-24 border-b border-border bg-black" aria-labelledby="testimonials-heading">
+      <section className="py-28 border-t border-border bg-black" aria-labelledby="testimonials-heading">
         <div className="max-w-6xl mx-auto px-8">
-          <FadeUp className="mb-14">
-            <span className="font-mono text-[10px] tracking-[4px] uppercase text-ion opacity-80 mb-3 block">05 &mdash; Client Words</span>
-            <h2 id="testimonials-heading" className="font-hero text-[clamp(40px,5vw,72px)] tracking-[0.06em] uppercase">
-              What They <span className="text-gold">Say</span>
+          <FadeUp className="mb-16">
+            <h2 id="testimonials-heading" className="font-hero text-[clamp(36px,5vw,60px)] tracking-[0.04em] uppercase text-white leading-none">
+              Client Results
             </h2>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map(({ quote, author, company }, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+            {testimonials.map(({ quote, author, role, location }, i) => (
               <FadeUp key={author} delay={i * 100}>
-                <figure className="bg-surface border border-border p-9 relative h-full hover:border-ion/30 transition-colors duration-300">
-                  <span className="absolute top-5 left-7 font-hero text-[64px] text-ion/20 leading-none select-none" aria-hidden="true">&ldquo;</span>
-                  <blockquote className="text-[15px] text-text1 leading-[1.85] italic mb-6 mt-4">{quote}</blockquote>
+                <figure className="bg-void p-8 h-full flex flex-col justify-between">
+                  <blockquote className="text-[14px] text-text1 leading-[1.85] font-light mb-8">
+                    &ldquo;{quote}&rdquo;
+                  </blockquote>
                   <figcaption>
-                    <div className="font-brand text-[10px] tracking-[2px] uppercase text-ion">{author}</div>
-                    <div className="text-xs text-text3 mt-1">{company}</div>
+                    <div className="font-brand text-[11px] tracking-[1px] uppercase text-white mb-1">{author}</div>
+                    <div className="font-mono text-[10px] tracking-[2px] uppercase text-text3">{role} &mdash; {location}</div>
                   </figcaption>
                 </figure>
               </FadeUp>
@@ -239,30 +239,33 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24" aria-labelledby="cta-heading">
+      <section className="py-28 border-t border-border" aria-labelledby="cta-heading">
         <div className="max-w-6xl mx-auto px-8">
           <FadeUp>
-            <div className="bg-surface border border-border p-16 text-center relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
-                <span className="font-hero text-[200px] tracking-[0.1em] text-white/[0.015]">ANAXION</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 id="cta-heading" className="font-hero text-[clamp(40px,5vw,72px)] tracking-[0.04em] uppercase text-white leading-[0.95] mb-6">
+                  Ready to Build<br />
+                  <span className="text-gradient-accent">Something Real?</span>
+                </h2>
+                <p className="text-[15px] text-text2 leading-[1.9] font-light max-w-[400px]">
+                  Book a free 30-minute discovery call. We will tell you honestly
+                  whether we are the right fit — even if the answer is no.
+                </p>
               </div>
-              <span className="font-mono text-[10px] tracking-[4px] uppercase text-ion opacity-80 mb-4 block">Ready to Build?</span>
-              <h2 id="cta-heading" className="font-hero text-[clamp(40px,5vw,72px)] tracking-[0.06em] uppercase mb-4 relative z-10">
-                Let&apos;s Build<br /><span className="text-ion">Something Real.</span>
-              </h2>
-              <p className="text-[15px] text-text2 max-w-[480px] mx-auto leading-[1.85] mb-8 relative z-10">
-                Book a free 30-minute discovery call. No commitment. We will tell you honestly if we
-                are the right fit for your project.
-              </p>
-              <div className="flex gap-4 justify-center flex-wrap relative z-10">
+              <div className="flex flex-col gap-4 md:items-end">
                 <Link href="/contact"
-                  className="font-brand text-[11px] tracking-[3px] uppercase bg-ion text-black px-9 py-4 hover:bg-gold hover:-translate-y-0.5 transition-all duration-300">
-                  Book Discovery Call &rarr;
+                  className="inline-flex items-center gap-3 bg-white text-black font-brand text-[10px] tracking-[3px] uppercase px-10 py-5 hover:bg-ion transition-colors duration-300 w-full md:w-auto justify-center">
+                  Book Discovery Call
                 </Link>
                 <Link href="/portfolio"
-                  className="font-brand text-[11px] tracking-[3px] uppercase border border-border text-text1 px-9 py-4 hover:border-ion hover:text-ion hover:-translate-y-0.5 transition-all duration-300">
+                  className="inline-flex items-center gap-3 border border-border text-text2 font-brand text-[10px] tracking-[3px] uppercase px-10 py-5 hover:border-white hover:text-white transition-colors duration-300 w-full md:w-auto justify-center group">
                   View Our Work
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                 </Link>
+                <p className="font-mono text-[10px] tracking-[2px] uppercase text-text3 mt-2">
+                  Response within 24 hours
+                </p>
               </div>
             </div>
           </FadeUp>
